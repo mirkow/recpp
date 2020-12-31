@@ -1,0 +1,46 @@
+{
+    "dockerFile": "Dockerfile",
+    "extensions": [
+        "ms-vscode.cpptools",
+        "ms-vscode.cmake-tools",
+        "eamodio.gitlens",
+        "xaver.clang-format",
+        "twxs.cmake",
+        "jeff-hykin.better-cpp-syntax",
+        "slevesque.vscode-multiclip",
+        // "notskm.clang-tidy",
+        "streetsidesoftware.code-spell-checker",
+        "cschlosser.doxdocgen",
+        "maptz.camelcasenavigation",
+        "cheshirekow.cmake-format",
+        // "llvm-vs-code-extensions.vscode-clangd"
+    ],
+    "workspaceMount": "source=${localWorkspaceFolder}/,target=/recpp,type=bind,consistency=cached",
+    "workspaceFolder": "/recpp",
+    "settings": {
+        "cmake.configureArgs": [
+            "-DCMAKE_CXX_COMPILER=/usr/bin/clang-10",
+        ],
+        "cmake.debugConfig": {
+            "stopAtEntry": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+        },
+        "editor.formatOnSave": true,
+        "[cpp]": {
+            "editor.defaultFormatter": "xaver.clang-format"
+        },
+        "cmake.ctest.parallelJobs": 1,
+        "clang-tidy.buildPath": "build",
+        "clang-tidy.executable": "clang-tidy-10",
+        "clangd.path": "clangd-11",
+        "clang-format.executable": "clang-format-10"
+    }
+}

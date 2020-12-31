@@ -1,0 +1,21 @@
+# - Config file for the recpp package
+# It defines the following variables
+#  recpp_INCLUDE_DIRS - include directories for recpp
+#  recpp_LIBRARIES    - libraries to link against
+#  recpp_EXECUTABLE   - the recpp executables
+#  recpp_LIB_DIRS     - the library directories of recpp
+
+# Compute paths
+get_filename_component(recpp_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
+set(recpp_INCLUDE_DIRS "@CONF_INCLUDE_DIRS@")
+set(recpp_LIB_DIRS "@CONF_LIB_DIRS@")
+@CONF_LINK_DIR_CMD@
+
+# Our library dependencies (contains definitions for IMPORTED targets)
+if(NOT TARGET recpp AND NOT recpp_BINARY_DIR)
+  include("${recpp_CMAKE_DIR}/recppTargets.cmake")
+endif()
+
+# These are IMPORTED targets created by recppTargets.cmake
+set(recpp_LIBRARIES recpp)
+
