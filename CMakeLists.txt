@@ -27,9 +27,9 @@ endif(NOT CMAKE_BUILD_TYPE)
 
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
 
-set(HEADERS src/utils.h)
+set(HEADERS src/recpp/utils.h src/recpp/FunctionMover.h)
 
-set(SOURCES src/utils.cpp)
+set(SOURCES src/recpp/utils.cpp src/recpp/FunctionMover.cpp)
 
 find_package(Clang REQUIRED)
 
@@ -191,4 +191,4 @@ macro(add_recpp_exe app_name app_src)
   add_dependencies(static_exes ${app_name}_static_exe)
 endmacro()
 
-add_recpp_exe(FunctionMover src/FunctionMover.cpp)
+add_recpp_exe(FunctionMover src/FunctionMover/main.cpp)

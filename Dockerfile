@@ -58,6 +58,7 @@ RUN dpkg -i /downloads/mkblob_1.04-1_amd64.deb
 
 RUN cd /downloads && wget https://github.com/clangd/clangd/releases/download/11.0.0/clangd-linux-11.0.0.zip 
 RUN unzip /downloads/clangd-linux-11.0.0.zip -d /downloads && mv /downloads/clangd_11.0.0/bin/clangd /usr/bin/clangd-11
+RUN ln -s /usr/bin/clangd-11 /usr/bin/clangd
 
 # RUN cd /downloads && wget https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/clang+llvm-11.0.0-x86_64-linux-gnu-ubuntu-20.04.tar.xz \
 #     && tar -xf /downloads/clang+llvm-11.0.0-x86_64-linux-gnu-ubuntu-20.04.tar.xz -C /usr --strip 1 \
